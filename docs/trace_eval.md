@@ -1,8 +1,8 @@
 # 📊 BÁO CÁO THU HOẠCH NGHIỆM THU BÀI LAB 3 (BƯỚC 3 — SUBMISSION ARTIFACT)
 
-> **Họ và Tên Học viên:** [Điền Họ và Tên]  
-> **Mã Sinh Viên / Mã Học viên:** [Điền MSSV]  
-> **Chủ đề Lựa chọn:** [Điền tên chủ đề đã chọn từ docs/DANH_SACH_DE_TAI.md hoặc Đề tài Mở]  
+> **Họ và Tên Học viên:** Bùi Quang Vinh
+> **Mã Sinh Viên / Mã Học viên:** 2A202603012
+> **Chủ đề Lựa chọn:** Trợ lý tìm kiếm, tóm tắt và tổng hợp tài liệu
 
 ---
 
@@ -10,11 +10,11 @@
 
 | Tiêu chí Đánh giá | Mức độ (1 - 5) | Giải trình chi tiết lý do chọn điểm |
 | :--- | :---: | :--- |
-| **1. Multi-step Reasoning** | / 5 | Bài toán có yêu cầu chia nhỏ nhiều bước suy luận nối tiếp nhau không? |
-| **2. Tool Interaction** | / 5 | Hệ thống có cần kết nối với MCP Server / Cơ sở dữ liệu bên ngoài không? |
-| **3. Dynamic Decision** | / 5 | Bước tiếp theo có phụ thuộc vào kết quả quan sát bước trước không? |
-| **4. Long Horizon Goal** | / 5 | Hệ thống có phải giữ mục tiêu xuyên suốt qua nhiều lượt xử lý không? |
-| **TỔNG ĐIỂM AGENTIC FIT** | **/ 20** | *Nếu tổng điểm > 12/20: Bài toán rất phù hợp triển khai Agentic System.* |
+| **1. Multi-step Reasoning** |5 / 5 | Bài toán có yêu cầu chia nhỏ nhiều bước suy luận nối tiếp nhau không? |
+| **2. Tool Interaction** |5 / 5 | Hệ thống có cần kết nối với MCP Server / Cơ sở dữ liệu bên ngoài không? |
+| **3. Dynamic Decision** |5 / 5 | Bước tiếp theo có phụ thuộc vào kết quả quan sát bước trước không? |
+| **4. Long Horizon Goal** |4 / 5 | Hệ thống có phải giữ mục tiêu xuyên suốt qua nhiều lượt xử lý không? |
+| **TỔNG ĐIỂM AGENTIC FIT** | **19 / 20** | *Nếu tổng điểm > 12/20: Bài toán rất phù hợp triển khai Agentic System.* |
 
 ---
 
@@ -28,20 +28,91 @@ Dán 1 đoạn trích xuất log tiêu biểu từ file `docs/trace_waterfall.js
 [
   {
     "step": 1,
+    "query": "Tìm các tài liệu về RAG và tổng hợp ưu điểm, hạn chế",
     "action_type": "TOOL_EXECUTION",
-    "tool_name": "academic_query",
+    "tool_name": "search_documents",
     "arguments": {
-      "student_id": "SV2026001"
+      "top_k": 5,
+      "query": "RAG"
     },
     "observation": {
       "status": "SUCCESS",
-      "student_id": "SV2026001",
-      "data": {
-        "full_name": "Nguyễn Văn An",
-        "gpa": 3.85
-      }
+      "query": "RAG",
+      "results": [
+        {
+          "document_id": "DOC001",
+          "title": "Introduction to Retrieval-Augmented Generation",
+          "score": 1
+        },
+        {
+          "document_id": "DOC002",
+          "title": "Advantages of Retrieval-Augmented Generation",
+          "score": 1
+        },
+        {
+          "document_id": "DOC003",
+          "title": "Limitations of Retrieval-Augmented Generation",
+          "score": 1
+        }
+      ]
     },
-    "latency_ms": 120.5
+    "latency_ms": 990.93
+  },
+  {
+    "step": 2,
+    "query": "Tìm các tài liệu về RAG và tổng hợp ưu điểm, hạn chế",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "read_document",
+    "arguments": {
+      "document_id": "DOC001"
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "document_id": "DOC001",
+      "title": "Introduction to Retrieval-Augmented Generation",
+      "content": "\n        Retrieval-Augmented Generation combines information retrieval\n        with large language models. RAG allows a model to retrieve\n        external knowledge before generating its answer.\n        This can reduce hallucination and improve factual grounding.\n        "
+    },
+    "latency_ms": 1063.6
+  },
+  {
+    "step": 3,
+    "query": "Tìm các tài liệu về RAG và tổng hợp ưu điểm, hạn chế",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "read_document",
+    "arguments": {
+      "document_id": "DOC002"
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "document_id": "DOC002",
+      "title": "Advantages of Retrieval-Augmented Generation",
+      "content": "\n        RAG allows knowledge to be updated without retraining the model.\n        It can improve factual accuracy and provide evidence from\n        external documents.\n        "
+    },
+    "latency_ms": 1295.1
+  },
+  {
+    "step": 4,
+    "query": "Tìm các tài liệu về RAG và tổng hợp ưu điểm, hạn chế",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "read_document",
+    "arguments": {
+      "document_id": "DOC003"
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "document_id": "DOC003",
+      "title": "Limitations of Retrieval-Augmented Generation",
+      "content": "\n        RAG depends strongly on retrieval quality.\n        Poor retrieval may provide irrelevant context.\n        RAG systems also introduce additional latency and infrastructure\n        complexity.\n        "
+    },
+    "latency_ms": 1217.36
+  },
+  {
+    "step": 5,
+    "query": "Tìm các tài liệu về RAG và tổng hợp ưu điểm, hạn chế",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini xác định dữ liệu hiện tại đã đủ để trả lời.",
+    "output": "Dựa trên các tài liệu đã được tìm kiếm và đọc (DOC001, DOC002, và DOC003), dưới đây là tổng hợp thông tin về RAG (Retrieval-Augmented Generation), bao gồm định nghĩa, ưu điểm và hạn chế:\n\n### 1. Giới thiệu về RAG (Retrieval-Augmented Generation)\n* **Khái niệm:** RAG kết hợp giữa hệ thống truy xuất thông tin (information retrieval) với các mô hình ngôn ngữ lớn (large language models). Công nghệ này cho phép mô hình truy xuất kiến thức từ bên ngoài trước khi tạo ra câu trả lời (Nguồn: *DOC001*).\n\n### 2. Ưu điểm của RAG\n* **Giảm hiện tượng ảo giác (Hallucination) và cải thiện độ chính xác thực tế:** Giúp mô hình căn cứ vào các dữ liệu thực tế (Nguồn: *DOC001*, *DOC002*).\n* **Cập nhật kiến thức linh hoạt:** Cho phép cập nhật tri thức mới mà không cần phải huấn luyện lại (retraining) toàn bộ mô hình (Nguồn: *DOC002*).\n* **Cung cấp bằng chứng minh bạch:** Có thể trích dẫn và cung cấp bằng chứng từ các tài liệu bên ngoài (Nguồn: *DOC002*).\n\n### 3. Hạn chế của RAG\n* **Phụ thuộc vào chất lượng truy xuất:** Hiệu suất của RAG phụ thuộc rất lớn vào việc truy xuất; nếu quá trình truy xuất kém, hệ thống có thể cung cấp ngữ cảnh không liên quan (Nguồn: *DOC003*).\n* **Độ trễ và độ phức tạp hạ tầng:** Hệ thống RAG làm tăng thêm độ trễ (latency) khi xử lý và làm phức tạp thêm về mặt hạ tầng kỹ thuật (Nguồn: *DOC003*).\n\n---\n**Các nguồn tài liệu đã sử dụng:**\n* `DOC001`: Introduction to Retrieval-Augmented Generation\n* `DOC002`: Advantages of Retrieval-Augmented Generation\n* `DOC003`: Limitations of Retrieval-Augmented Generation",
+    "latency_ms": 2979.42
   }
 ]
 ```
@@ -51,8 +122,8 @@ Dán 1 đoạn trích xuất log tiêu biểu từ file `docs/trace_waterfall.js
 ## 3. TỔNG KẾT KẾT QUẢ NGHIỆM THU & NỘP BÀI
 
 - [ ] Đã điền API Key thật trong `.env` và xác nhận Agent chạy mượt mà trên LLM API thật (Gemini/OpenAI).
-- **Tổng số Test Cases đã chạy thành công:** ___ / 5 test cases.
-- **Số lượt gọi Tool qua MCP Server chính xác:** ___ lượt.
+- **Tổng số Test Cases đã chạy thành công:** 5 / 5 test cases.
+- **Số lượt gọi Tool qua MCP Server chính xác:**  lượt.
 - **Kết quả đẩy Repo nộp bài:** [ ] Đã Commit và Push mã nguồn thành công lên GitHub cá nhân.
 
 ---

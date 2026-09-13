@@ -1,0 +1,37 @@
+[
+  {
+    "id": "TC01",
+    "type": "direct_query",
+    "question": "Giải thích ngắn gọn khái niệm trí tuệ nhân tạo là gì.",
+    "expected_behavior": "Agent trả lời trực tiếp bằng kiến thức chung, không gọi bất kỳ Tool nào.",
+    "complexity": "Low"
+  },
+  {
+    "id": "TC02",
+    "type": "document_search",
+    "question": "Tìm các tài liệu liên quan đến Retrieval-Augmented Generation (RAG) trong kho tài liệu.",
+    "expected_behavior": "Agent gọi Tool search_documents và trả về các tài liệu liên quan.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC03",
+    "type": "single_document_summary",
+    "question": "Đọc tài liệu DOC001 và tóm tắt những ý chính của tài liệu đó.",
+    "expected_behavior": "Agent gọi Tool read_document với document_id DOC001, sau đó dùng nội dung nhận được để tóm tắt.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC04",
+    "type": "multi_step_synthesis",
+    "question": "Tìm các tài liệu về Retrieval-Augmented Generation và tổng hợp các ưu điểm và hạn chế của RAG dựa trên nhiều tài liệu. Hãy chỉ rõ các tài liệu đã sử dụng.",
+    "expected_behavior": "Agent gọi search_documents, sau đó gọi read_document cho nhiều tài liệu liên quan trước khi tổng hợp câu trả lời cuối cùng có dẫn nguồn.",
+    "complexity": "High"
+  },
+  {
+    "id": "TC05",
+    "type": "edge_case_handling",
+    "question": "Đọc và tóm tắt tài liệu DOC999.",
+    "expected_behavior": "Agent gọi read_document với DOC999, nhận NOT_FOUND và thông báo không tìm thấy tài liệu, không tự bịa nội dung.",
+    "complexity": "Medium"
+  }
+]
