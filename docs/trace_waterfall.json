@@ -1,39 +1,123 @@
 [
   {
     "step": 1,
-    "query": "Tìm các tài liệu về RAG và tổng hợp ưu điểm, hạn chế",
+    "query": "Giải thích ngắn gọn khái niệm trí tuệ nhân tạo là gì.",
     "action_type": "TOOL_EXECUTION",
     "tool_name": "search_documents",
     "arguments": {
-      "top_k": 5,
-      "query": "RAG"
+      "top_k": 3,
+      "query": "trí tuệ nhân tạo là gì"
     },
     "observation": {
       "status": "SUCCESS",
-      "query": "RAG",
+      "query": "trí tuệ nhân tạo là gì",
+      "results": []
+    },
+    "latency_ms": 2108.7,
+    "test_case_id": "TC01"
+  },
+  {
+    "step": 2,
+    "query": "Giải thích ngắn gọn khái niệm trí tuệ nhân tạo là gì.",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "search_documents",
+    "arguments": {
+      "top_k": 3,
+      "query": "AI"
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "query": "AI",
       "results": [
-        {
-          "document_id": "DOC001",
-          "title": "Introduction to Retrieval-Augmented Generation",
-          "score": 1
-        },
         {
           "document_id": "DOC002",
           "title": "Advantages of Retrieval-Augmented Generation",
           "score": 1
+        }
+      ]
+    },
+    "latency_ms": 1116.86,
+    "test_case_id": "TC01"
+  },
+  {
+    "step": 3,
+    "query": "Giải thích ngắn gọn khái niệm trí tuệ nhân tạo là gì.",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "search_documents",
+    "arguments": {
+      "query": "trí tuệ nhân tạo",
+      "top_k": 3
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "query": "trí tuệ nhân tạo",
+      "results": []
+    },
+    "latency_ms": 878.41,
+    "test_case_id": "TC01"
+  },
+  {
+    "step": 4,
+    "query": "Giải thích ngắn gọn khái niệm trí tuệ nhân tạo là gì.",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "search_documents",
+    "arguments": {
+      "query": "công nghệ",
+      "top_k": 3
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "query": "công nghệ",
+      "results": []
+    },
+    "latency_ms": 965.08,
+    "test_case_id": "TC01"
+  },
+  {
+    "step": 5,
+    "query": "Giải thích ngắn gọn khái niệm trí tuệ nhân tạo là gì.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini xác định dữ liệu hiện tại đã đủ để trả lời.",
+    "output": "Dựa trên kết quả tìm kiếm, hệ thống đã thực hiện tìm kiếm với các từ khóa liên quan như \"trí tuệ nhân tạo là gì\", \"AI\", \"trí tuệ nhân tạo\", và \"công nghệ\" nhưng không tìm thấy tài liệu phù hợp trực tiếp về khái niệm trí tuệ nhân tạo (kết quả trả về duy nhất cho từ khóa \"AI\" là tài liệu `DOC002` nói về \"Advantages of Retrieval-Augmented Generation\", không phải về định nghĩa trí tuệ nhân tạo).\n\nVì trong kho tài liệu hiện tại không có tài liệu nào chứa thông tin để giải thích khái niệm trí tuệ nhân tạo, theo quy tắc \"Nếu không tìm thấy tài liệu, hãy nói rõ điều đó\" và \"Không được bịa thông tin không xuất hiện trong tài liệu\", tôi xin thông báo:\n\n**Final Answer:**\nHiện tại trong kho tài liệu không có tài liệu nào cung cấp thông tin hoặc giải thích về khái niệm trí tuệ nhân tạo. Do đó, tôi không thể cung cấp câu trả lời dựa trên nguồn tài liệu hiện có.",
+    "latency_ms": 1658.33,
+    "test_case_id": "TC01"
+  },
+  {
+    "step": 1,
+    "query": "Tìm các tài liệu liên quan đến Retrieval-Augmented Generation (RAG) trong kho tài liệu.",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "search_documents",
+    "arguments": {
+      "top_k": 5,
+      "query": "Retrieval-Augmented Generation RAG"
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "query": "Retrieval-Augmented Generation RAG",
+      "results": [
+        {
+          "document_id": "DOC001",
+          "title": "Introduction to Retrieval-Augmented Generation",
+          "score": 3
+        },
+        {
+          "document_id": "DOC002",
+          "title": "Advantages of Retrieval-Augmented Generation",
+          "score": 3
         },
         {
           "document_id": "DOC003",
           "title": "Limitations of Retrieval-Augmented Generation",
-          "score": 1
+          "score": 3
         }
       ]
     },
-    "latency_ms": 990.93
+    "latency_ms": 1103.45,
+    "test_case_id": "TC02"
   },
   {
     "step": 2,
-    "query": "Tìm các tài liệu về RAG và tổng hợp ưu điểm, hạn chế",
+    "query": "Tìm các tài liệu liên quan đến Retrieval-Augmented Generation (RAG) trong kho tài liệu.",
     "action_type": "TOOL_EXECUTION",
     "tool_name": "read_document",
     "arguments": {
@@ -43,13 +127,14 @@
       "status": "SUCCESS",
       "document_id": "DOC001",
       "title": "Introduction to Retrieval-Augmented Generation",
-      "content": "\n        Retrieval-Augmented Generation combines information retrieval\n        with large language models. RAG allows a model to retrieve\n        external knowledge before generating its answer.\n        This can reduce hallucination and improve factual grounding.\n        "
+      "content": "\n        Retrieval-Augmented Generation combines information retrieval\n        with large language models. It allows external knowledge to be\n        retrieved before response generation.\n        "
     },
-    "latency_ms": 1063.6
+    "latency_ms": 1263.49,
+    "test_case_id": "TC02"
   },
   {
     "step": 3,
-    "query": "Tìm các tài liệu về RAG và tổng hợp ưu điểm, hạn chế",
+    "query": "Tìm các tài liệu liên quan đến Retrieval-Augmented Generation (RAG) trong kho tài liệu.",
     "action_type": "TOOL_EXECUTION",
     "tool_name": "read_document",
     "arguments": {
@@ -59,13 +144,14 @@
       "status": "SUCCESS",
       "document_id": "DOC002",
       "title": "Advantages of Retrieval-Augmented Generation",
-      "content": "\n        RAG allows knowledge to be updated without retraining the model.\n        It can improve factual accuracy and provide evidence from\n        external documents.\n        "
+      "content": "\n        Later RAG systems showed that knowledge can be updated without\n        retraining the language model. They can also provide evidence\n        from retrieved documents.\n        "
     },
-    "latency_ms": 1295.1
+    "latency_ms": 2298.07,
+    "test_case_id": "TC02"
   },
   {
     "step": 4,
-    "query": "Tìm các tài liệu về RAG và tổng hợp ưu điểm, hạn chế",
+    "query": "Tìm các tài liệu liên quan đến Retrieval-Augmented Generation (RAG) trong kho tài liệu.",
     "action_type": "TOOL_EXECUTION",
     "tool_name": "read_document",
     "arguments": {
@@ -75,16 +161,161 @@
       "status": "SUCCESS",
       "document_id": "DOC003",
       "title": "Limitations of Retrieval-Augmented Generation",
-      "content": "\n        RAG depends strongly on retrieval quality.\n        Poor retrieval may provide irrelevant context.\n        RAG systems also introduce additional latency and infrastructure\n        complexity.\n        "
+      "content": "\n        Recent research highlights that retrieval quality strongly\n        affects RAG performance. Poor retrieval can introduce irrelevant\n        context, while complex retrieval pipelines increase latency.\n        "
     },
-    "latency_ms": 1217.36
+    "latency_ms": 912.19,
+    "test_case_id": "TC02"
   },
   {
     "step": 5,
-    "query": "Tìm các tài liệu về RAG và tổng hợp ưu điểm, hạn chế",
+    "query": "Tìm các tài liệu liên quan đến Retrieval-Augmented Generation (RAG) trong kho tài liệu.",
     "action_type": "FINAL_ANSWER",
     "thought": "Gemini xác định dữ liệu hiện tại đã đủ để trả lời.",
-    "output": "Dựa trên các tài liệu đã được tìm kiếm và đọc (DOC001, DOC002, và DOC003), dưới đây là tổng hợp thông tin về RAG (Retrieval-Augmented Generation), bao gồm định nghĩa, ưu điểm và hạn chế:\n\n### 1. Giới thiệu về RAG (Retrieval-Augmented Generation)\n* **Khái niệm:** RAG kết hợp giữa hệ thống truy xuất thông tin (information retrieval) với các mô hình ngôn ngữ lớn (large language models). Công nghệ này cho phép mô hình truy xuất kiến thức từ bên ngoài trước khi tạo ra câu trả lời (Nguồn: *DOC001*).\n\n### 2. Ưu điểm của RAG\n* **Giảm hiện tượng ảo giác (Hallucination) và cải thiện độ chính xác thực tế:** Giúp mô hình căn cứ vào các dữ liệu thực tế (Nguồn: *DOC001*, *DOC002*).\n* **Cập nhật kiến thức linh hoạt:** Cho phép cập nhật tri thức mới mà không cần phải huấn luyện lại (retraining) toàn bộ mô hình (Nguồn: *DOC002*).\n* **Cung cấp bằng chứng minh bạch:** Có thể trích dẫn và cung cấp bằng chứng từ các tài liệu bên ngoài (Nguồn: *DOC002*).\n\n### 3. Hạn chế của RAG\n* **Phụ thuộc vào chất lượng truy xuất:** Hiệu suất của RAG phụ thuộc rất lớn vào việc truy xuất; nếu quá trình truy xuất kém, hệ thống có thể cung cấp ngữ cảnh không liên quan (Nguồn: *DOC003*).\n* **Độ trễ và độ phức tạp hạ tầng:** Hệ thống RAG làm tăng thêm độ trễ (latency) khi xử lý và làm phức tạp thêm về mặt hạ tầng kỹ thuật (Nguồn: *DOC003*).\n\n---\n**Các nguồn tài liệu đã sử dụng:**\n* `DOC001`: Introduction to Retrieval-Augmented Generation\n* `DOC002`: Advantages of Retrieval-Augmented Generation\n* `DOC003`: Limitations of Retrieval-Augmented Generation",
-    "latency_ms": 2979.42
+    "output": "Dựa trên các tài liệu đã tìm kiếm và đọc từ kho tài liệu, dưới đây là tổng hợp thông tin về **Retrieval-Augmented Generation (RAG)**:\n\n### 1. Giới thiệu về RAG (Retrieval-Augmented Generation)\n* **Khái niệm:** RAG kết hợp giữa hệ thống truy xuất thông tin (information retrieval) với các mô hình ngôn ngữ lớn (large language models). \n* **Cách hoạt động:** Cho phép truy xuất tri thức bên ngoài trước khi tiến hành sinh câu trả lời (response generation).\n* **Nguồn:** `DOC001` - *Introduction to Retrieval-Augmented Generation*\n\n### 2. Ưu điểm của RAG\n* **Cập nhật tri thức dễ dàng:** Cho phép cập nhật tri thức mà không cần phải huấn luyện lại (retraining) mô hình ngôn ngữ.\n* **Cung cấp bằng chứng:** Hệ thống có thể cung cấp các tài liệu/bằng chứng được truy xuất đi kèm để minh chứng cho câu trả lời.\n* **Nguồn:** `DOC002` - *Advantages of Retrieval-Augmented Generation*\n\n### 3. Hạn chế của RAG\n* **Phụ thuộc vào chất lượng truy xuất:** Chất lượng của việc truy xuất ảnh hưởng rất lớn đến hiệu suất của RAG. Quá trình truy xuất kém có thể đưa vào các ngữ cảnh không liên quan.\n* **Độ trễ:** Các đường ống (pipelines) truy xuất phức tạp có thể làm tăng độ trễ của hệ thống.\n* **Nguồn:** `DOC003` - *Limitations of Retrieval-Augmented Generation*",
+    "latency_ms": 2119.78,
+    "test_case_id": "TC02"
+  },
+  {
+    "step": 1,
+    "query": "Đọc tài liệu DOC001 và tóm tắt những ý chính của tài liệu đó.",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "read_document",
+    "arguments": {
+      "document_id": "DOC001"
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "document_id": "DOC001",
+      "title": "Introduction to Retrieval-Augmented Generation",
+      "content": "\n        Retrieval-Augmented Generation combines information retrieval\n        with large language models. It allows external knowledge to be\n        retrieved before response generation.\n        "
+    },
+    "latency_ms": 872.93,
+    "test_case_id": "TC03"
+  },
+  {
+    "step": 2,
+    "query": "Đọc tài liệu DOC001 và tóm tắt những ý chính của tài liệu đó.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini xác định dữ liệu hiện tại đã đủ để trả lời.",
+    "output": "Dưới đây là tóm tắt các ý chính từ tài liệu **DOC001** (tiêu đề: *Introduction to Retrieval-Augmented Generation*):\n\n* **Định nghĩa:** Retrieval-Augmented Generation (RAG) kết hợp giữa quá trình truy xuất thông tin (information retrieval) và các mô hình ngôn ngữ lớn (large language models).\n* **Nguyên lý hoạt động:** Cho phép truy xuất tri thức từ bên ngoài trước khi tiến hành tạo câu trả lời.\n\nNguồn sử dụng: **DOC001** (*Introduction to Retrieval-Augmented Generation*).",
+    "latency_ms": 1709.26,
+    "test_case_id": "TC03"
+  },
+  {
+    "step": 1,
+    "query": "Tìm các tài liệu về Retrieval-Augmented Generation và tổng hợp các ưu điểm và hạn chế của RAG dựa trên nhiều tài liệu. Hãy chỉ rõ các tài liệu đã sử dụng.",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "search_documents",
+    "arguments": {
+      "top_k": 5,
+      "query": "Retrieval-Augmented Generation"
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "query": "Retrieval-Augmented Generation",
+      "results": [
+        {
+          "document_id": "DOC001",
+          "title": "Introduction to Retrieval-Augmented Generation",
+          "score": 2
+        },
+        {
+          "document_id": "DOC002",
+          "title": "Advantages of Retrieval-Augmented Generation",
+          "score": 2
+        },
+        {
+          "document_id": "DOC003",
+          "title": "Limitations of Retrieval-Augmented Generation",
+          "score": 2
+        }
+      ]
+    },
+    "latency_ms": 1255.9,
+    "test_case_id": "TC04"
+  },
+  {
+    "step": 2,
+    "query": "Tìm các tài liệu về Retrieval-Augmented Generation và tổng hợp các ưu điểm và hạn chế của RAG dựa trên nhiều tài liệu. Hãy chỉ rõ các tài liệu đã sử dụng.",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "read_document",
+    "arguments": {
+      "document_id": "DOC001"
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "document_id": "DOC001",
+      "title": "Introduction to Retrieval-Augmented Generation",
+      "content": "\n        Retrieval-Augmented Generation combines information retrieval\n        with large language models. It allows external knowledge to be\n        retrieved before response generation.\n        "
+    },
+    "latency_ms": 1009.92,
+    "test_case_id": "TC04"
+  },
+  {
+    "step": 3,
+    "query": "Tìm các tài liệu về Retrieval-Augmented Generation và tổng hợp các ưu điểm và hạn chế của RAG dựa trên nhiều tài liệu. Hãy chỉ rõ các tài liệu đã sử dụng.",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "read_document",
+    "arguments": {
+      "document_id": "DOC002"
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "document_id": "DOC002",
+      "title": "Advantages of Retrieval-Augmented Generation",
+      "content": "\n        Later RAG systems showed that knowledge can be updated without\n        retraining the language model. They can also provide evidence\n        from retrieved documents.\n        "
+    },
+    "latency_ms": 845.41,
+    "test_case_id": "TC04"
+  },
+  {
+    "step": 4,
+    "query": "Tìm các tài liệu về Retrieval-Augmented Generation và tổng hợp các ưu điểm và hạn chế của RAG dựa trên nhiều tài liệu. Hãy chỉ rõ các tài liệu đã sử dụng.",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "read_document",
+    "arguments": {
+      "document_id": "DOC003"
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "document_id": "DOC003",
+      "title": "Limitations of Retrieval-Augmented Generation",
+      "content": "\n        Recent research highlights that retrieval quality strongly\n        affects RAG performance. Poor retrieval can introduce irrelevant\n        context, while complex retrieval pipelines increase latency.\n        "
+    },
+    "latency_ms": 1394.64,
+    "test_case_id": "TC04"
+  },
+  {
+    "step": 5,
+    "query": "Tìm các tài liệu về Retrieval-Augmented Generation và tổng hợp các ưu điểm và hạn chế của RAG dựa trên nhiều tài liệu. Hãy chỉ rõ các tài liệu đã sử dụng.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini xác định dữ liệu hiện tại đã đủ để trả lời.",
+    "output": "Dựa trên các tài liệu đã được tìm kiếm và đọc, dưới đây là tổng hợp về Retrieval-Augmented Generation (RAG) cùng với các ưu điểm và hạn chế của nó:\n\n### 1. Tổng quan về Retrieval-Augmented Generation (RAG)\n* **Khái niệm:** RAG là phương pháp kết hợp giữa hệ thống truy xuất thông tin (information retrieval) với các mô hình ngôn ngữ lớn (large language models). Phương pháp này cho phép truy xuất tri thức từ bên ngoài trước khi tiến hành sinh câu trả lời.\n* **Nguồn:** *DOC001 - Introduction to Retrieval-Augmented Generation*\n\n### 2. Ưu điểm của RAG\n* **Cập nhật tri thức linh hoạt:** Cho phép cập nhật tri thức mới mà không cần phải huấn luyện lại (retraining) mô hình ngôn ngữ lớn.\n* **Độ tin cậy và khả năng giải thích:** Có khả năng cung cấp bằng chứng rõ ràng thông qua các tài liệu đã được truy xuất kèm theo.\n* **Nguồn:** *DOC002 - Advantages of Retrieval-Augmented Generation*\n\n### 3. Hạn chế của RAG\n* **Phụ thuộc vào chất lượng truy xuất:** Hiệu suất của hệ thống RAG chịu ảnh hưởng mạnh mẽ bởi chất lượng của quá trình truy xuất; nếu truy xuất kém, hệ thống có thể đưa vào các ngữ cảnh không liên quan.\n* **Độ trễ (Latency):** Các đường ống (pipelines) truy xuất phức tạp có thể làm tăng độ trễ khi phản hồi.\n* **Nguồn:** *DOC003 - Limitations of Retrieval-Augmented Generation*\n\n---\n**Các tài liệu đã sử dụng:**\n1. **DOC001**: *Introduction to Retrieval-Augmented Generation*\n2. **DOC002**: *Advantages of Retrieval-Augmented Generation*\n3. **DOC003**: *Limitations of Retrieval-Augmented Generation*",
+    "latency_ms": 1934.37,
+    "test_case_id": "TC04"
+  },
+  {
+    "step": 1,
+    "query": "Đọc và tóm tắt tài liệu DOC999.",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "read_document",
+    "arguments": {
+      "document_id": "DOC999"
+    },
+    "observation": {
+      "status": "NOT_FOUND",
+      "message": "Không tìm thấy tài liệu DOC999"
+    },
+    "latency_ms": 1115.87,
+    "test_case_id": "TC05"
+  },
+  {
+    "step": 2,
+    "query": "Đọc và tóm tắt tài liệu DOC999.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini xác định dữ liệu hiện tại đã đủ để trả lời.",
+    "output": "Dựa trên kết quả kiểm tra tài liệu, hệ thống không tìm thấy tài liệu có mã **DOC999** (như thông báo: *\"Không tìm thấy tài liệu DOC999\"*). \n\nVì quy tắc của tôi là không được bịa thông tin và phải dựa trên tài liệu thực tế, tôi xin thông báo rằng không thể tóm tắt tài liệu DOC999 do tài liệu này không tồn tại trong hệ thống.",
+    "latency_ms": 1677.91,
+    "test_case_id": "TC05"
   }
 ]

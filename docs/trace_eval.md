@@ -10,12 +10,11 @@
 
 | Tiêu chí Đánh giá | Mức độ (1 - 5) | Giải trình chi tiết lý do chọn điểm |
 | :--- | :---: | :--- |
-| **1. Multi-step Reasoning** |5 / 5 | Bài toán có yêu cầu chia nhỏ nhiều bước suy luận nối tiếp nhau không? |
-| **2. Tool Interaction** |5 / 5 | Hệ thống có cần kết nối với MCP Server / Cơ sở dữ liệu bên ngoài không? |
-| **3. Dynamic Decision** |5 / 5 | Bước tiếp theo có phụ thuộc vào kết quả quan sát bước trước không? |
-| **4. Long Horizon Goal** |4 / 5 | Hệ thống có phải giữ mục tiêu xuyên suốt qua nhiều lượt xử lý không? |
-| **TỔNG ĐIỂM AGENTIC FIT** | **19 / 20** | *Nếu tổng điểm > 12/20: Bài toán rất phù hợp triển khai Agentic System.* |
-
+| **1. Multi-step Reasoning** | 5 / 5 | Agent phải thực hiện chuỗi bước tìm kiếm tài liệu → lựa chọn tài liệu phù hợp → đọc nội dung → đánh giá thông tin → tổng hợp câu trả lời cuối cùng. |
+| **2. Tool Interaction** | 5 / 5 | Agent cần sử dụng các công cụ `search_documents` và `read_document` thông qua MCP Server để truy xuất dữ liệu thay vì chỉ dựa vào kiến thức của LLM. |
+| **3. Dynamic Decision** | 5 / 5 | Tài liệu cần đọc và số bước tiếp theo phụ thuộc trực tiếp vào kết quả của `search_documents` và các Observation trước đó. |
+| **4. Long Horizon Goal** | 4 / 5 | Agent phải duy trì mục tiêu tổng hợp ban đầu xuyên suốt nhiều lần gọi công cụ và nhiều Observation trước khi tạo Final Answer. |
+| **TỔNG ĐIỂM AGENTIC FIT** | **19 / 20** | Bài toán phù hợp với Agentic System vì yêu cầu multi-step reasoning, tool use và dynamic decision. |
 ---
 
 ## 2. TRÍCH XUẤT KẾT QUẢ WATERFALL TRACE LOG (SAU KHI CHẠY TEST SUITE TRÊN API THẬT)
@@ -121,10 +120,10 @@ Dán 1 đoạn trích xuất log tiêu biểu từ file `docs/trace_waterfall.js
 
 ## 3. TỔNG KẾT KẾT QUẢ NGHIỆM THU & NỘP BÀI
 
-- [ ] Đã điền API Key thật trong `.env` và xác nhận Agent chạy mượt mà trên LLM API thật (Gemini/OpenAI).
+- [x ] Đã điền API Key thật trong `.env` và xác nhận Agent chạy mượt mà trên LLM API thật (Gemini/OpenAI).
 - **Tổng số Test Cases đã chạy thành công:** 5 / 5 test cases.
-- **Số lượt gọi Tool qua MCP Server chính xác:**  lượt.
-- **Kết quả đẩy Repo nộp bài:** [ ] Đã Commit và Push mã nguồn thành công lên GitHub cá nhân.
+- **Số lượt gọi Tool qua MCP Server chính xác:** 15 lượt.
+- **Kết quả đẩy Repo nộp bài:** [x] Đã Commit và Push mã nguồn thành công lên GitHub cá nhân.
 
 ---
 

@@ -53,43 +53,83 @@ TOOLS_SCHEMA = [
 DOCUMENT_DATABASE = {
     "DOC001": {
         "title": "Introduction to Retrieval-Augmented Generation",
+        "published_at": "2023-05-01",
+
         "content": """
         Retrieval-Augmented Generation combines information retrieval
-        with large language models. RAG allows a model to retrieve
-        external knowledge before generating its answer.
-        This can reduce hallucination and improve factual grounding.
+        with large language models. It allows external knowledge to be
+        retrieved before response generation.
         """,
-        "tags": ["rag", "retrieval", "llm"]
+
+        "tags": [
+            "rag",
+            "retrieval",
+            "llm"
+        ],
+
+        "claims": [
+            "RAG combines retrieval with language generation.",
+            "External knowledge can improve factual grounding."
+        ],
+
+        "references": []
     },
+
 
     "DOC002": {
         "title": "Advantages of Retrieval-Augmented Generation",
+        "published_at": "2024-02-10",
+
         "content": """
-        RAG allows knowledge to be updated without retraining the model.
-        It can improve factual accuracy and provide evidence from
-        external documents.
+        Later RAG systems showed that knowledge can be updated without
+        retraining the language model. They can also provide evidence
+        from retrieved documents.
         """,
-        "tags": ["rag", "advantages"]
+
+        "tags": [
+            "rag",
+            "retrieval",
+            "advantages"
+        ],
+
+        "claims": [
+            "RAG can update knowledge without retraining.",
+            "RAG improves factual grounding.",
+            "RAG can provide source evidence."
+        ],
+
+        "references": [
+            "DOC001"
+        ]
     },
+
 
     "DOC003": {
         "title": "Limitations of Retrieval-Augmented Generation",
-        "content": """
-        RAG depends strongly on retrieval quality.
-        Poor retrieval may provide irrelevant context.
-        RAG systems also introduce additional latency and infrastructure
-        complexity.
-        """,
-        "tags": ["rag", "limitations"]
-    },
+        "published_at": "2025-03-15",
 
-    "DOC004": {
-        "title": "Fine-tuning Large Language Models",
         "content": """
-        Fine-tuning modifies model parameters using domain-specific data.
-        It can adapt model behavior but requires training resources.
+        Recent research highlights that retrieval quality strongly
+        affects RAG performance. Poor retrieval can introduce irrelevant
+        context, while complex retrieval pipelines increase latency.
         """,
-        "tags": ["fine-tuning", "llm"]
+
+        "tags": [
+            "rag",
+            "retrieval",
+            "limitations"
+        ],
+
+        "claims": [
+            "RAG performance depends strongly on retrieval quality.",
+            "Poor retrieval can introduce irrelevant information.",
+            "RAG pipelines introduce additional latency."
+        ],
+
+        "references": [
+            "DOC001",
+            "DOC002"
+        ]
     }
 }
 
